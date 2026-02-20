@@ -1,59 +1,37 @@
-# ARTIFEX v7.1 — Compositional Safety Routing
+# ARTIFEX v7.2 — Spanish Benchmark Edition
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/artifex-v7/blob/main/ARTIFEX_v7_Compositional_Safety.ipynb)
+[![Open v7.2 In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/artifex-v7/blob/main/ARTIFEX_v7.2_Spanish_Benchmark.ipynb)
 
-> **State-of-the-art multimodal content safety analysis** using 2025-2026 SOTA research. Multilingual, culturally-aware, with LLM-as-Judge evaluation, FiftyOne visual annotation, and information-efficient HITL ranking.
+[![Open v7.0 In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/artifex-v7/blob/main/ARTIFEX_v7_Compositional_Safety.ipynb)
 
-## What's New in v7.1
+## Notebooks
 
-| Feature | Description | Paper |
+| Version | File | Description |
 |---|---|---|
-| **LLM-as-Judge** | Adaptive Precise Boolean Rubrics replace Likert scales | arXiv:2503.23339 |
-| **FiftyOne Annotation** | Voxel51 visual curation for flagged multimodal content | docs.voxel51.com |
-| **X-Value Audit** | Cross-lingual Consensus/Pluralism values assessment (18 langs) | arXiv:2602.17283 |
-| **HITL Ranking** | Information-efficient ranking & exemplar selection queries | arXiv:2602.15738 |
-| **Multilingual Embedding** | paraphrase-multilingual-MiniLM-L12-v2 (50+ languages) | arXiv:1908.10084 |
-| **Multicultural Swarm** | Bangla/Hindi/Arabic harm detection in safety agents | arXiv:2602.16241 |
+| **v7.2** | `ARTIFEX_v7.2_Spanish_Benchmark.ipynb` | Spanish-language benchmark, 68 Colombian-context prompts, X-Value Radar, Active Learning, FiftyOne |
+| **v7.0** | `ARTIFEX_v7_Compositional_Safety.ipynb` | Original multilingual compositional safety swarm |
 
-## Full Research Stack
+## v7.2 Features
 
-| Paper | arXiv | Cell |
+- **68-prompt Spanish benchmark** (Colombian context, MLC-aligned)
+- **X-Value Consensus/Pluralism** classification per prompt
+- **Structured LLM-as-Judge** (Pydantic + Gemini 2.5 Flash)
+- **FiftyOne visual annotation** dashboard
+- **X-Value Radar Chart** multicultural alignment visualization
+- **Active Learning Boundary Shift** math (cosine similarity reclassification)
+- **HITL Ranking Queries** (Beyond Labels framework)
+
+## Research References
+
+| Paper | Venue | arXiv |
 |---|---|---|
-| BERTopic | 2203.05794 | 05 |
-| UMAP | 1802.03426 | 05.1 |
-| Omni-Safety (Cross-Modal) | 2602.10161 | 06 |
-| LPP Entropy Routing | 2601.07006 | 06 |
-| Aetheria Governance | 2512.02530 | 06 |
-| Multi3Hate | 2411.03888 | 06 |
-| Adaptive Boolean Rubrics | 2503.23339 | 07 |
-| FiftyOne Visual Annotation | — | 08 |
-| X-Value Cross-Lingual | 2602.17283 | 10 |
-| Beyond Labels HITL | 2602.15738 | 11 |
-| Bangla Annotator Bias | 2602.16241 | 04, 10 |
+| Omni-Safety | Feb 2026 | 2602.10161 |
+| LPP Entropy Routing | AAMAS 2026 | 2601.07006 |
+| Aetheria Governance | Dec 2025 | 2512.02530 |
+| Multi3Hate | NAACL 2025 | 2411.03888 |
+| Adaptive Boolean Rubrics | Google 2025 | 2503.23339 |
+| X-Value Cross-Lingual | Alibaba/ZJU 2026 | 2602.17283 |
+| Beyond Labels HITL | Georgia Tech 2026 | 2602.15738 |
+| Bangla Annotator Bias | Wichita State 2026 | 2602.16241 |
 
-## Notebook Structure (29 cells)
-
-```
-00 README + Open in Colab
-01 ENV Setup (multilingual SOTA stack)
-02 Data Ingestion (multilingual synthetic fallback)
-03 Automated EDA (ydata-profiling)
-04 Multilingual Embedding (50+ languages)
-05 BERTopic Clustering
-05.1 UMAP 3D Multilingual Projection
-06 ARTIFEX Swarm v7.1 (Consensus/Pluralism layer)
-07 LLM-as-Judge (Boolean Rubrics) ← NEW
-08 FiftyOne Visual Annotation ← NEW
-09 LLM Cluster Synthesis
-10 X-Value Cross-Lingual Audit ← NEW
-11 HITL Ranking & Exemplar Selection ← NEW
-12 Multilingual Sankey Flow
-13 Environment Audit
-```
-
-## Contact
-
-- **Linktree**: [linktr.ee/artifexlabs](https://linktr.ee/artifexlabs)
-- **HuggingFace**: [huggingface.co/222tuesday](https://huggingface.co/222tuesday)
-
-© 2026 Artifex Labs. Research & demonstration purposes only.
+© 2026 Artifex Labs
