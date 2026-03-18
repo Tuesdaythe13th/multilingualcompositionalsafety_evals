@@ -20,6 +20,23 @@
   ╚══════════════════════════════════════════════════════════════════════════════╝
 ```
 
+```
+ ████████╗██╗   ██╗███████╗███████╗██████╗  █████╗ ██╗   ██╗
+ ╚══██╔══╝██║   ██║██╔════╝██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝
+    ██║   ██║   ██║█████╗  ███████╗██║  ██║███████║ ╚████╔╝
+    ██║   ██║   ██║██╔══╝  ╚════██║██║  ██║██╔══██║  ╚██╔╝
+    ██║   ╚██████╔╝███████╗███████║██████╔╝██║  ██║   ██║
+    ╚═╝    ╚═════╝ ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝
+
+  ╔══════════════════════════════════════════════════════╗
+  ║  Principal Engineer  ·  ARTIFEX Labs                 ║
+  ║  tuesday@artifex.fun                                 ║
+  ║  linktr.ee/artifexlabs                               ║
+  ║  huggingface.co/222tuesday                           ║
+  ║  contact: zcal.co/tuesday                            ║
+  ╚══════════════════════════════════════════════════════╝
+```
+
 **Principal Investigator**: Tuesday, ARTIFEX Labs
 **Framework**: 3D Measurement Science in the Era of Frontier Intelligence (2026)
 **Standards**: NIST AI 800-3 · ISO/IEC 42119-2/3 · MLCommons AILuminate
@@ -61,6 +78,9 @@
 
 | Version | Open in Colab | Description | Measurement Science Contribution |
 |---|---|---|---|
+| **safety_routing** 🆕 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/safety_routing_colab.ipynb) | **Ethical AI Feedback Loop** — K-Means clustering + LLM summarization of user feedback; Bokeh dashboard; extractive fallback; ydata-profiling EDA. | **Consequential validity** — cluster coherence as proxy for feedback signal quality |
+| **fairness_dashboard** 🆕 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/fairness_failure_dashboard.ipynb) | **Cohort Fairness & Failure Clusters** — Loads `results/*_metrics.json`, visualizes per-language/locale micro_f1 gaps, exports structured failure cluster manifest. | **External validity** — cross-slice language gap analysis |
+| **spanish_ailuminate** 🆕 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/spanish_ailuminate_hf_colab.ipynb) | **Spanish AILuminate Jailbreaking** — 500 prompts × 4 categories; Qwen3-235B MUT; 3-judge majority voting; JSR/CCR metrics; BLOCK/WARNING/PASS gates; JSON evidence bundle. | **Content validity** — multi-locale jailbreak coverage; BBOM supply-chain audit |
 | **v7.5** 🆕 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/claude/add-model-evaluation-DxOpU/ARTIFEX_v7.5_FiftyOne_Model_Evaluation.ipynb) | **FiftyOne Model Evaluation** — Full `evaluate_classifications()` pipeline: per-sample metrics, confusion matrices, PR curves, IRT item analysis, scenario analysis, BBOM compliance gate. | **Criterion validity** — per-sample accuracy as IRT observed score; NIST GLMM variance decomposition |
 | **v7.1** ★ | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/claude/add-model-evaluation-DxOpU/ARTIFEX_v7_Compositional_Safety.ipynb) | **Core Multilingual Swarm** — Adaptive boolean rubrics, jury routing, dual-encoder embeddings, HDBSCAN soft memberships, calibrated LLM-as-judge, triplet HITL, **FiftyOne model evaluation**. | **Construct validity** — BooleanRubricResult gates + BBOM Layer 9 |
 | **v7.4** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/master/ARTIFEX_v7.4_Ethical_Feedback_Loop.ipynb) | **Ethical Feedback Loop** — Agentic benchmarking, time-horizon metric, propensity vs. capability distinction. | **Consequential validity** — alignment propensity measurement |
@@ -355,8 +375,10 @@ A detailed critical review of two 2026 benchmark survey papers — covering Agen
 ---
 
 ```
-  ╔═══════════════════════════════════════════════════════════════╗
-  ║  ARTIFEX LABS  ·  FOR RESEARCH PURPOSES ONLY                 ║
-  ║  Tuesday  ·  2026  ·  claude/adaptive-boolean-rubrics-lgx2v  ║
-  ╚═══════════════════════════════════════════════════════════════╝
+  ╔═══════════════════════════════════════════════════════════════════╗
+  ║  ARTIFEX LABS  ·  FOR RESEARCH PURPOSES ONLY                     ║
+  ║  Tuesday  ·  2026  ·  tuesday@artifex.fun  ·  zcal.co/tuesday    ║
+  ║  linktr.ee/artifexlabs  ·  huggingface.co/222tuesday             ║
+  ║  claude/integrate-notebook-update-readme-SnpIs                   ║
+  ╚═══════════════════════════════════════════════════════════════════╝
 ```
