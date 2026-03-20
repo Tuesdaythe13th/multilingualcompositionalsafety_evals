@@ -394,9 +394,11 @@ def parse_args() -> argparse.Namespace:
                         help="JSONL file with prompt/response records.")
     parser.add_argument("--output", type=Path, required=True,
                         help="Output CSV with similarity scores and safety labels.")
-    parser.add_argument("--model", default="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    parser.add_argument("--model", default="BAAI/bge-m3",
                         help="Sentence-transformers model name or local path. "
-                             "Swap for 'intfloat/multilingual-e5-large' for higher accuracy.")
+                             "Default: 'BAAI/bge-m3' (2026 SOTA, 1024-dim, 100+ languages). "
+                             "Lightweight alt: 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'. "
+                             "High-accuracy alt: 'intfloat/multilingual-e5-large-instruct'.")
     parser.add_argument("--threshold", type=float, default=0.78,
                         help="Cosine-similarity threshold for the 'Safe' label.")
     parser.add_argument("--batch-size", type=int, default=256,
