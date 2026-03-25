@@ -68,10 +68,11 @@ jupyter notebook
 | Version | Open in Colab | Description |
 |---|---|---|
 | **v8.0** ★ | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v8_Agentic_Alignment_Engine.ipynb) | **Agentic Alignment Engine** — LangGraph stateful swarm, True VLM auditing, adversarial red teaming (synthetic jailbreaks), and DPO preference dataset export. |
-| **v7.1** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7_Compositional_Safety.ipynb) | **Core Multilingual Swarm** — Adaptive boolean rubrics, jury routing, dual-encoder embeddings, HDBSCAN soft memberships, calibrated LLM-as-judge, and triplet HITL queries. |
+| **v7.5** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7.5_English_Cultural_Alignment.ipynb) | **English Cultural Alignment** — US vs. UK vs. AU English, Cultural Bias Score, In-Culture Score, Cultural Delta, Stylistic Sensitivity, and Annotation Guideline integration. |
 | **v7.4** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7.4_Ethical_Feedback_Loop.ipynb) | **Ethical Feedback Loop** — User feedback ingestion, K-Means clustering, LLM cluster summarization, and safety routing heuristics. |
 | **v7.3** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7.3_Dialect_Divergence.ipynb) | **Dialect Divergence Benchmark** — Castilian vs. Mexican Spanish, 200-pair parallel corpus with BGE-M3 embeddings. |
 | **v7.2** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7.2_Spanish_Benchmark.ipynb) | **Spanish Benchmark Edition** — 68-prompt Colombian-context benchmark with X-Value Radar charts. |
+| **v7.1** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7_Compositional_Safety.ipynb) | **Core Multilingual Swarm** — Adaptive boolean rubrics, jury routing, dual-encoder embeddings, HDBSCAN soft memberships, calibrated LLM-as-judge, and triplet HITL queries. |
 
 ---
 
@@ -274,6 +275,21 @@ BBOM stop-conditions before emitting any benchmark claim:
 ## Paper Review
 
 A detailed critical review of two 2026 benchmark survey papers — covering Agent-as-a-Judge frameworks, contamination-resistant benchmarks (KAMI), multimodal cultural evaluation (Afri-MCQA, AVMeme Exam), adversarial robustness (CAIA), and agentic SDLC evaluation (DevOps-Gym) — is available in [`PAPER_REVIEW.md`](./PAPER_REVIEW.md).
+
+---
+
+## Annotation Guideline
+
+The **Cultural Appropriateness Annotation Guideline v1.0** provides the master rubric and decision framework for evaluating AI model responses across multilingual and multicultural contexts. It includes:
+
+- A two-step rating protocol (appropriateness label + harm severity scale 1–5)
+- A ten-dimension cultural taxonomy
+- A 50-item master Boolean rubric (5 items per dimension)
+- Decision trees and routing rules for borderline cases
+- Quality assurance procedures with IRR targets
+- Ethical labor provisions for annotators
+
+Full guideline: [`ANNOTATION_GUIDELINE.md`](./ANNOTATION_GUIDELINE.md)
 
 ---
 
