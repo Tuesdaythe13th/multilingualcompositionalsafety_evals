@@ -1,0 +1,135 @@
+name: CI – Lint & Data Integrity
+
+on:
+  push:
+    branches: ["main", "master", "claude/**"]
+  pull_request:
+    branches: ["main", "master"]
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # 1. Python lint & static analysis
+  # ---------------------------------------------------------------------------
+  lint:
+    name: Lint Python scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install lint dependencies
+        run: pip install flake8 ruff
+
+      - name: ruff check (fast linter)
+        run: ruff check evaluator.py ingest.py --output-format github
+
+      - name: flake8 (style enforcement)
+        run: flake8 evaluator.py ingest.py --max-line-length=110 --ignore=E501,W503
+
+  # ---------------------------------------------------------------------------
+  # 2. Schema validation of sample data
+  # ---------------------------------------------------------------------------
+  data-integrity:
+    name: Data integrity checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install validation dependencies
+        run: pip install jsonschema
+
+      - name: Validate schema.json is itself valid JSON
+        run: python -c "import json; json.load(open('schema.json')); print('schema.json OK')"
+
+      - name: Validate cultural_taxonomy.yaml is well-formed
+        run: |
+          pip install -q pyyaml
+          python -c "import yaml; yaml.safe_load(open('cultural_taxonomy.yaml')); print('cultural_taxonomy.yaml OK')"
+
+      - name: Run ingest.py QC on sample JSONL (strict mode)
+        run: |
+          pip install -q jsonschema
+          python ingest.py \
+            --input sample_prompts_responses.jsonl \
+            --output /tmp/clean_sample.jsonl \
+            --strict
+          echo "Records passing QC: $(wc -l < /tmp/clean_sample.jsonl)"
+
+      - name: Check all sample records pass schema
+        run: |
+          python - <<'EOF'
+          import json, jsonschema, sys
+          schema = json.load(open("schema.json"))
+          validator = jsonschema.Draft7Validator(schema)
+          # sample_prompts_responses.jsonl uses a subset of schema fields
+          # (it is a response file, not a prompt file) – check it is valid JSON
+          errors = []
+          with open("sample_prompts_responses.jsonl") as f:
+              for i, line in enumerate(f, 1):
+                  try:
+                      json.loads(line.strip())
+                  except json.JSONDecodeError as e:
+                      errors.append(f"Line {i}: {e}")
+          if errors:
+              for e in errors:
+                  print(e, file=sys.stderr)
+              sys.exit(1)
+          print(f"All {i} sample lines are valid JSON.")
+          EOF
+
+  # ---------------------------------------------------------------------------
+  # 3. Smoke test – evaluator.py runs without errors on the sample file
+  # ---------------------------------------------------------------------------
+  evaluator-smoke:
+    name: Evaluator smoke test (CPU)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install evaluator runtime dependencies
+        run: |
+          pip install \
+            "sentence-transformers>=3.0" \
+            torch --index-url https://download.pytorch.org/whl/cpu \
+            tqdm
+
+      - name: Run evaluator on sample data
+        run: |
+          python evaluator.py \
+            --input sample_prompts_responses.jsonl \
+            --output /tmp/scores.csv \
+            --threshold 0.78 \
+            --batch-size 8 \
+            --num-workers 0 \
+            --device cpu
+          echo "--- First 5 output rows ---"
+          head -6 /tmp/scores.csv
+
+      - name: Verify output CSV has expected columns
+        run: |
+          python - <<'EOF'
+          import csv
+          with open("/tmp/scores.csv") as f:
+              reader = csv.DictReader(f)
+              expected = {"prompt_id", "prompt", "response", "language", "culture", "hazard", "similarity", "safety_label"}
+              actual = set(reader.fieldnames or [])
+              missing = expected - actual
+              if missing:
+                  raise ValueError(f"Missing columns in output CSV: {missing}")
+              rows = list(reader)
+          print(f"Output CSV OK: {len(rows)} rows, columns {sorted(actual)}")
+          EOF

@@ -15,11 +15,31 @@
 
   ╔══════════════════════════════════════════════════════════════════════════════╗
   ║  COMPOSITIONAL SAFETY  ·  CROSS-LINGUAL VALUES  ·  ADAPTIVE BOOL RUBRICS   ║
-  ║  BBOM SUPPLY-CHAIN AUDIT  ·  LLM-AS-JUDGE  ·  FIFTYONE ANNOTATION          ║
+  ║  BBOM SUPPLY-CHAIN AUDIT  ·  LLM-AS-JUDGE  ·  FIFTYONE MODEL EVALUATION    ║
+  ║  IRT-CALIBRATED BENCHMARKS  ·  NIST AI 800-3  ·  ISO/IEC 42119             ║
   ╚══════════════════════════════════════════════════════════════════════════════╝
 ```
 
+```
+ ████████╗██╗   ██╗███████╗███████╗██████╗  █████╗ ██╗   ██╗
+ ╚══██╔══╝██║   ██║██╔════╝██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝
+    ██║   ██║   ██║█████╗  ███████╗██║  ██║███████║ ╚████╔╝
+    ██║   ██║   ██║██╔══╝  ╚════██║██║  ██║██╔══██║  ╚██╔╝
+    ██║   ╚██████╔╝███████╗███████║██████╔╝██║  ██║   ██║
+    ╚═╝    ╚═════╝ ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝
+
+  ╔══════════════════════════════════════════════════════╗
+  ║  Principal Engineer  ·  ARTIFEX Labs                 ║
+  ║  tuesday@artifex.fun                                 ║
+  ║  linktr.ee/artifexlabs                               ║
+  ║  huggingface.co/222tuesday                           ║
+  ║  contact: zcal.co/tuesday                            ║
+  ╚══════════════════════════════════════════════════════╝
+```
+
 **Principal Investigator**: Tuesday, ARTIFEX Labs
+**Framework**: 3D Measurement Science in the Era of Frontier Intelligence (2026)
+**Standards**: NIST AI 800-3 · ISO/IEC 42119-2/3 · MLCommons AILuminate
 **Branch**: `main`
 
 ---
@@ -105,6 +125,95 @@ jupyter notebook
 
 ---
 
+## Notebook Index
+
+> Each notebook now includes a **§ 2026 Measurement Science Framework** cell that maps its methodology to NIST AI 800-3 GLMMs, IRT 3PL construct validity, and the five facets of validity.
+
+| Version | Open in Colab | Description | Measurement Science Contribution |
+|---|---|---|---|
+| **safety_routing** 🆕 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/safety_routing_colab.ipynb) | **Ethical AI Feedback Loop** — K-Means clustering + LLM summarization of user feedback; Bokeh dashboard; extractive fallback; ydata-profiling EDA. | **Consequential validity** — cluster coherence as proxy for feedback signal quality |
+| **fairness_dashboard** 🆕 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/fairness_failure_dashboard.ipynb) | **Cohort Fairness & Failure Clusters** — Loads `results/*_metrics.json`, visualizes per-language/locale micro_f1 gaps, exports structured failure cluster manifest. | **External validity** — cross-slice language gap analysis |
+| **spanish_ailuminate** 🆕 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/spanish_ailuminate_hf_colab.ipynb) | **Spanish AILuminate Jailbreaking** — 500 prompts × 4 categories; Qwen3-235B MUT; 3-judge majority voting; JSR/CCR metrics; BLOCK/WARNING/PASS gates; JSON evidence bundle. | **Content validity** — multi-locale jailbreak coverage; BBOM supply-chain audit |
+| **v7.5** 🆕 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/claude/add-model-evaluation-DxOpU/ARTIFEX_v7.5_FiftyOne_Model_Evaluation.ipynb) | **FiftyOne Model Evaluation** — Full `evaluate_classifications()` pipeline: per-sample metrics, confusion matrices, PR curves, IRT item analysis, scenario analysis, BBOM compliance gate. | **Criterion validity** — per-sample accuracy as IRT observed score; NIST GLMM variance decomposition |
+| **v7.1** ★ | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/claude/add-model-evaluation-DxOpU/ARTIFEX_v7_Compositional_Safety.ipynb) | **Core Multilingual Swarm** — Adaptive boolean rubrics, jury routing, dual-encoder embeddings, HDBSCAN soft memberships, calibrated LLM-as-judge, triplet HITL, **FiftyOne model evaluation**. | **Construct validity** — BooleanRubricResult gates + BBOM Layer 9 |
+| **v7.4** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/master/ARTIFEX_v7.4_Ethical_Feedback_Loop.ipynb) | **Ethical Feedback Loop** — Agentic benchmarking, time-horizon metric, propensity vs. capability distinction. | **Consequential validity** — alignment propensity measurement |
+| **v7.3** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/master/ARTIFEX_v7.3_Dialect_Divergence.ipynb) | **Dialect Divergence Benchmark** — Castilian vs. Mexican Spanish, 200-pair parallel corpus, DIF analysis. | **External validity** — common-person IRT linking across dialects |
+| **v7.2** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/master/ARTIFEX_v7.2_Spanish_Benchmark.ipynb) | **Spanish Benchmark Edition** — 68-prompt Colombian-context benchmark, X-Value Radar charts, DIF detection. | **Content validity** — cultural taxonomy + construct coverage mapping |
+
+---
+
+## 2026 Measurement Science Framework
+
+> *"The structural maturation of artificial intelligence as a field of scientific inquiry has necessitated a fundamental transition from simplistic task-based benchmarking to the comprehensive application of measurement science."*
+> — NIST AI 800-3, 2026
+
+ARTIFEX v7.x implements the **2026 state-of-the-art** in AI evaluation measurement science. Every notebook is aligned to the following theoretical foundations:
+
+### IRT 3PL Model — Item-Level Diagnostics
+
+The probability of a correct safety verdict on item *i* by a model with latent ability θ:
+
+```
+P_i(θ) = c_i + (1 - c_i) / (1 + exp(-a_i * (θ - b_i)))
+
+where:
+  a_i = discrimination   (BBOM Layer 3 gate: a_i > 0 required)
+  b_i = difficulty       (stored as sample.difficulty field in FiftyOne)
+  c_i = pseudo-guessing  (default 0.1 for 3-class safety)
+```
+
+Items with **negative discrimination** (a_i < 0) indicate annotation errors — a hard BBOM Layer 9 failure gate.
+
+### NIST AI 800-3 GLMM Variance Decomposition
+
+```
+Total Variance
+  = Between-Item Variance  (difficulty b_i — item characteristic curves)
+  + Within-Item Variance   (model inconsistency — jury disagreement rate)
+  + Cross-Lingual Variance (DIF — dialect divergence score)
+  + Residual               (annotation noise)
+```
+
+FiftyOne's `eval_key` per-sample fields + ARTIFEX jury routing directly implement this decomposition without a separate statistics package.
+
+### Five Facets of Validity — Notebook Mapping
+
+| Validity Facet | Notebook | Primary Instrument |
+|---|---|---|
+| **Content** | v7.2 (Spanish Benchmark) | `cultural_taxonomy.yaml` × BCP-47 coverage |
+| **Construct** | v7.1 (Core Swarm) | BooleanRubricResult gates + BERTopic coherence |
+| **Criterion** | v7.5 (FiftyOne Evaluation) | `evaluate_classifications()` + IRT θ̂ estimate |
+| **External** | v7.3 (Dialect Divergence) | DIF analysis + common-person IRT linking |
+| **Consequential** | v7.4 (Ethical Feedback Loop) | Time-horizon metric + propensity audit |
+
+### Standards Alignment
+
+| Standard | Version | ARTIFEX Implementation |
+|---|---|---|
+| NIST AI 800-3 | 2026 | GLMM variance decomposition, benchmark vs. generalized accuracy |
+| ISO/IEC 42119-2 | Oct 2025 | Testing techniques across AI lifecycle |
+| ISO/IEC 42119-3 | Oct 2025 | Verification & validation approaches |
+| MLCommons AILuminate | 2026 | Structured risk assurance, BBOM supply-chain audit |
+| BBOM (Benchmark Bill of Materials) | Layer 1–10 | All 11 pipeline rubric gates |
+
+---
+
+## Upgrade Details — `claude/add-model-evaluation-DxOpU`
+
+### ⓪ v7.5 FiftyOne Model Evaluation (NEW)
+
+Full `fiftyone` evaluation pipeline with:
+- `evaluate_classifications("predictions", gt_field="ground_truth", eval_key="eval_simple")` — multiclass safety evaluation
+- Binary evaluation (`safe` vs `unsafe`) with PR curves
+- Per-sample correctness fields (`eval_simple` boolean per sample)
+- Confusion matrix (normalized, dark-theme seaborn)
+- Scenario analysis by language and hazard category
+- IRT item characteristic curves (ICC) for item-level diagnostics
+- BBOM compliance gate as a `BooleanRubricResult`
+
+---
+
+## Upgrade Details — `claude/adaptive-boolean-rubrics-lgx2v`
 ## Architecture Details
 
 ### ① Global Config (Cell 01) — Rubric Infrastructure
@@ -341,6 +450,12 @@ This project is provided for **research and educational purposes only**. Not int
 ---
 
 ```
+  ╔═══════════════════════════════════════════════════════════════════╗
+  ║  ARTIFEX LABS  ·  FOR RESEARCH PURPOSES ONLY                     ║
+  ║  Tuesday  ·  2026  ·  tuesday@artifex.fun  ·  zcal.co/tuesday    ║
+  ║  linktr.ee/artifexlabs  ·  huggingface.co/222tuesday             ║
+  ║  claude/integrate-notebook-update-readme-SnpIs                   ║
+  ╚═══════════════════════════════════════════════════════════════════╝
   ╔═══════════════════════════════════════════════════════════════╗
   ║  ARTIFEX LABS  ·  FOR RESEARCH PURPOSES ONLY                 ║
   ║  Tuesday  ·  2026  ·  github.com/Tuesdaythe13th              ║
