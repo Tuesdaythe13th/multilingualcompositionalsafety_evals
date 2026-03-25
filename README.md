@@ -20,7 +20,58 @@
 ```
 
 **Principal Investigator**: Tuesday, ARTIFEX Labs
-**Branch**: `claude/adaptive-boolean-rubrics-lgx2v`
+**Branch**: `main`
+
+---
+
+## Overview
+
+ARTIFEX LABS v7 is a multilingual compositional safety evaluation suite that benchmarks AI content-safety pipelines across languages, dialects, and cultural contexts. The suite implements:
+
+- **X-Value Consensus/Pluralism framework** for cross-lingual value alignment auditing
+- **Adaptive Boolean Rubrics** — machine-checkable, auditable gates at every pipeline decision point
+- **BBOM (Benchmark Bill of Materials)** supply-chain auditing for benchmark validity
+- **LLM-as-Judge** with bias-corrected estimators and Pydantic structured outputs
+- **Human-in-the-Loop (HITL)** triplet active learning queries
+- **FiftyOne** visual dataset curation for multimodal annotation
+
+Each notebook is a self-contained Google Colab experiment — click any badge below to run immediately.
+
+---
+
+## Quick Start
+
+### Prerequisites
+
+- A Google account (for Google Colab)
+- *(Optional)* A Gemini API key for LLM-as-Judge cells — add to Colab Secrets as `GEMINI_API_KEY`
+
+### Run a Notebook
+
+1. Click any **"Open in Colab"** badge below
+2. In Colab: **Runtime → Run all** (or run cells individually)
+3. When prompted, upload required data files (each notebook includes inline fallback data for demo purposes)
+
+### Run Locally
+
+```bash
+git clone https://github.com/Tuesdaythe13th/multilingualcompositionalsafety_evals.git
+cd multilingualcompositionalsafety_evals
+pip install bertopic hdbscan umap-learn sentence-transformers pandas pandera plotly scikit-learn
+jupyter notebook
+```
+
+---
+
+## Notebook Index
+
+| Version | Open in Colab | Description |
+|---|---|---|
+| **v8.0** ★ | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v8_Agentic_Alignment_Engine.ipynb) | **Agentic Alignment Engine** — LangGraph stateful swarm, True VLM auditing, adversarial red teaming (synthetic jailbreaks), and DPO preference dataset export. |
+| **v7.1** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7_Compositional_Safety.ipynb) | **Core Multilingual Swarm** — Adaptive boolean rubrics, jury routing, dual-encoder embeddings, HDBSCAN soft memberships, calibrated LLM-as-judge, and triplet HITL queries. |
+| **v7.4** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7.4_Ethical_Feedback_Loop.ipynb) | **Ethical Feedback Loop** — User feedback ingestion, K-Means clustering, LLM cluster summarization, and safety routing heuristics. |
+| **v7.3** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7.3_Dialect_Divergence.ipynb) | **Dialect Divergence Benchmark** — Castilian vs. Mexican Spanish, 200-pair parallel corpus with BGE-M3 embeddings. |
+| **v7.2** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7.2_Spanish_Benchmark.ipynb) | **Spanish Benchmark Edition** — 68-prompt Colombian-context benchmark with X-Value Radar charts. |
 
 ---
 
@@ -53,18 +104,7 @@
 
 ---
 
-## Notebook Index
-
-| Version | Open in Colab | Description |
-|---|---|---|
-| **v7.1** ★ | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/claude/adaptive-boolean-rubrics-lgx2v/ARTIFEX_v7_Compositional_Safety.ipynb) | **Core Multilingual Swarm** — Now with adaptive boolean rubrics, jury routing, dual-encoder embeddings, HDBSCAN soft memberships, calibrated LLM-as-judge, and triplet HITL queries. |
-| **v7.4** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/master/ARTIFEX_v7.4_Ethical_Feedback_Loop.ipynb) | **Ethical Feedback Loop** — 2026 agentic benchmarking insights with feedback-loop analysis. |
-| **v7.3** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/master/ARTIFEX_v7.3_Dialect_Divergence.ipynb) | **Dialect Divergence Benchmark** — Castilian vs. Mexican Spanish, 200-pair parallel corpus. |
-| **v7.2** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/master/ARTIFEX_v7.2_Spanish_Benchmark.ipynb) | **Spanish Benchmark Edition** — 68-prompt Colombian-context benchmark with X-Value Radar charts. |
-
----
-
-## Upgrade Details — `claude/adaptive-boolean-rubrics-lgx2v`
+## Architecture Details
 
 ### ① Global Config (Cell 01) — Rubric Infrastructure
 
@@ -278,9 +318,15 @@ A detailed critical review of two 2026 benchmark survey papers — covering Agen
 
 ---
 
+## License
+
+This project is provided for **research and educational purposes only**. Not intended for production deployment without independent verification. See individual notebook headers for specific terms.
+
+---
+
 ```
   ╔═══════════════════════════════════════════════════════════════╗
   ║  ARTIFEX LABS  ·  FOR RESEARCH PURPOSES ONLY                 ║
-  ║  Tuesday  ·  2026  ·  claude/adaptive-boolean-rubrics-lgx2v  ║
+  ║  Tuesday  ·  2026  ·  github.com/Tuesdaythe13th              ║
   ╚═══════════════════════════════════════════════════════════════╝
 ```
