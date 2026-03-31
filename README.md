@@ -83,19 +83,6 @@ jupyter notebook
 
 ---
 
-## Notebook Index
-
-| Version | Open in Colab | Description |
-|---|---|---|
-| **v8.0** ★ | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v8_Agentic_Alignment_Engine.ipynb) | **Agentic Alignment Engine** — LangGraph stateful swarm, True VLM auditing, adversarial red teaming (synthetic jailbreaks), and DPO preference dataset export. |
-| **v7.5** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7.5_English_Cultural_Alignment.ipynb) | **English Cultural Alignment** — US vs. UK vs. AU English, Cultural Bias Score, In-Culture Score, Cultural Delta, Stylistic Sensitivity, and Annotation Guideline integration. |
-| **v7.4** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7.4_Ethical_Feedback_Loop.ipynb) | **Ethical Feedback Loop** — User feedback ingestion, K-Means clustering, LLM cluster summarization, and safety routing heuristics. |
-| **v7.3** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7.3_Dialect_Divergence.ipynb) | **Dialect Divergence Benchmark** — Castilian vs. Mexican Spanish, 200-pair parallel corpus with BGE-M3 embeddings. |
-| **v7.2** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7.2_Spanish_Benchmark.ipynb) | **Spanish Benchmark Edition** — 68-prompt Colombian-context benchmark with X-Value Radar charts. |
-| **v7.1** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Tuesdaythe13th/multilingualcompositionalsafety_evals/blob/main/ARTIFEX_v7_Compositional_Safety.ipynb) | **Core Multilingual Swarm** — Adaptive boolean rubrics, jury routing, dual-encoder embeddings, HDBSCAN soft memberships, calibrated LLM-as-judge, and triplet HITL queries. |
-
----
-
 ## What's New — Adaptive Boolean Rubrics
 
 > Every critical pipeline decision now returns a structured
@@ -198,9 +185,9 @@ FiftyOne's `eval_key` per-sample fields + ARTIFEX jury routing directly implemen
 
 ---
 
-## Upgrade Details — `claude/add-model-evaluation-DxOpU`
+## What's New — v7.5 FiftyOne Model Evaluation
 
-### ⓪ v7.5 FiftyOne Model Evaluation (NEW)
+### ⓪ v7.5 FiftyOne Model Evaluation
 
 Full `fiftyone` evaluation pipeline with:
 - `evaluate_classifications("predictions", gt_field="ground_truth", eval_key="eval_simple")` — multiclass safety evaluation
@@ -213,7 +200,6 @@ Full `fiftyone` evaluation pipeline with:
 
 ---
 
-## Upgrade Details — `claude/adaptive-boolean-rubrics-lgx2v`
 ## Architecture Details
 
 ### ① Global Config (Cell 01) — Rubric Infrastructure
@@ -454,10 +440,6 @@ This project is provided for **research and educational purposes only**. Not int
   ║  ARTIFEX LABS  ·  FOR RESEARCH PURPOSES ONLY                     ║
   ║  Tuesday  ·  2026  ·  tuesday@artifex.fun  ·  zcal.co/tuesday    ║
   ║  linktr.ee/artifexlabs  ·  huggingface.co/222tuesday             ║
-  ║  claude/integrate-notebook-update-readme-SnpIs                   ║
+  ║  github.com/Tuesdaythe13th                                       ║
   ╚═══════════════════════════════════════════════════════════════════╝
-  ╔═══════════════════════════════════════════════════════════════╗
-  ║  ARTIFEX LABS  ·  FOR RESEARCH PURPOSES ONLY                 ║
-  ║  Tuesday  ·  2026  ·  github.com/Tuesdaythe13th              ║
-  ╚═══════════════════════════════════════════════════════════════╝
 ```
