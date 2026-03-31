@@ -30,6 +30,7 @@ High-throughput features:
 """
 
 import argparse
+import contextlib
 import csv
 import json
 import logging
@@ -226,7 +227,7 @@ def load_checkpoint(checkpoint_path: Path) -> int:
 
 def save_checkpoint(checkpoint_path: Path, processed: int) -> None:
     with checkpoint_path.open("w") as f:
-        json.dump({"processed": processed, "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ")}, f)
+        json.dump({"processed": processed, "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}, f)
 
 
 # ---------------------------------------------------------------------------
@@ -283,8 +284,11 @@ def evaluate(args: argparse.Namespace) -> None:
         writer.writeheader()
 
     processed = start_row
+    last_checkpoint = start_row
     skipped = 0
     t0 = time.time()
+
+    amp_ctx = torch.autocast(device.type) if use_amp else contextlib.nullcontext()
 
     try:
         pbar = tqdm.tqdm(loader, desc="Evaluating", unit="batch")
@@ -302,23 +306,14 @@ def evaluate(args: argparse.Namespace) -> None:
             valid_responses = [batch_responses[i] for i in valid_idx]
             valid_meta = [batch_meta[i] for i in valid_idx]
 
-            # Encode responses
-            with torch.no_grad():
-                if use_amp:
-                    with torch.autocast(device.type):
-                        resp_emb = model.encode(
-                            valid_responses,
-                            convert_to_tensor=True,
-                            normalize_embeddings=True,
-                            show_progress_bar=False,
-                        )
-                else:
-                    resp_emb = model.encode(
-                        valid_responses,
-                        convert_to_tensor=True,
-                        normalize_embeddings=True,
-                        show_progress_bar=False,
-                    )
+            # Encode responses (AMP when on CUDA, no-op context otherwise)
+            with torch.no_grad(), amp_ctx:
+                resp_emb = model.encode(
+                    valid_responses,
+                    convert_to_tensor=True,
+                    normalize_embeddings=True,
+                    show_progress_bar=False,
+                )
 
             resp_emb = resp_emb.to(device)
 
@@ -344,13 +339,15 @@ def evaluate(args: argparse.Namespace) -> None:
 
             processed += len(batch_meta)
 
-            # Checkpoint
-            if processed % args.checkpoint_every < args.batch_size:
+            # Checkpoint at regular intervals (threshold-based to avoid modulo skips)
+            if processed - last_checkpoint >= args.checkpoint_every:
                 csv_file.flush()
                 save_checkpoint(checkpoint_path, processed)
+                last_checkpoint = processed
 
-            # GPU memory hint (only when memory pressure is likely)
-            if device.type == "cuda" and processed % (args.checkpoint_every * 10) < args.batch_size:
+            # GPU memory hint (every 10× checkpoint interval)
+            if device.type == "cuda" and processed - start_row > 0 and \
+                    (processed - start_row) % (args.checkpoint_every * 10) < args.batch_size:
                 torch.cuda.empty_cache()
 
             elapsed = time.time() - t0

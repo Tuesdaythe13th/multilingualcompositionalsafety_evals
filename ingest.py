@@ -28,6 +28,7 @@ import hashlib
 import json
 import logging
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -111,7 +112,6 @@ def check_hazard_tag(record: dict) -> List[str]:
 
 def check_language_code(record: dict) -> List[str]:
     lang = record.get("language", "")
-    import re
     if not re.match(r"^[a-z]{2,3}(-[A-Z]{2,3})?$", lang):
         return [f"invalid_language_code:{lang!r}"]
     return []
