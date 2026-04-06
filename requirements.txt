@@ -1,0 +1,13 @@
+bertopic
+hdbscan
+umap-learn
+sentence-transformers>=3.0
+pandas
+pandera
+plotly
+scikit-learn
+numpy
+scipy
+tqdm
+emoji
+watermark
