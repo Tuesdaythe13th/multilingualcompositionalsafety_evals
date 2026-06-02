@@ -19,29 +19,6 @@
   ║  IRT-CALIBRATED BENCHMARKS  ·  NIST AI 800-3  ·  ISO/IEC 42119             ║
   ╚══════════════════════════════════════════════════════════════════════════════╝
 ```
-
-```
- ████████╗██╗   ██╗███████╗███████╗██████╗  █████╗ ██╗   ██╗
- ╚══██╔══╝██║   ██║██╔════╝██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝
-    ██║   ██║   ██║█████╗  ███████╗██║  ██║███████║ ╚████╔╝
-    ██║   ██║   ██║██╔══╝  ╚════██║██║  ██║██╔══██║  ╚██╔╝
-    ██║   ╚██████╔╝███████╗███████║██████╔╝██║  ██║   ██║
-    ╚═╝    ╚═════╝ ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝
-
-  ╔══════════════════════════════════════════════════════╗
-  ║  Principal Engineer  ·  ARTIFEX Labs                 ║
-  ║  tuesday@artifex.fun                                 ║
-  ║  linktr.ee/artifexlabs                               ║
-  ║  huggingface.co/222tuesday                           ║
-  ║  contact: zcal.co/tuesday                            ║
-  ╚══════════════════════════════════════════════════════╝
-```
-
-**Principal Investigator**: Tuesday, ARTIFEX Labs  
-**Framework**: 3D Measurement Science in the Era of Frontier Intelligence (2026)  
-**Standards**: NIST AI 800-3 · ISO/IEC 42119-2/3 · MLCommons AILuminate  
-**Branch**: `main`
-
 ---
 
 ## Overview
@@ -574,6 +551,30 @@ Full guideline: [`ANNOTATION_GUIDELINE.md`](./ANNOTATION_GUIDELINE.md)
 ## License
 
 This project is provided for **research and educational purposes only**. Not intended for production deployment without independent verification. See individual notebook headers for specific terms.
+
+
+```
+ ████████╗██╗   ██╗███████╗███████╗██████╗  █████╗ ██╗   ██╗
+ ╚══██╔══╝██║   ██║██╔════╝██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝
+    ██║   ██║   ██║█████╗  ███████╗██║  ██║███████║ ╚████╔╝
+    ██║   ██║   ██║██╔══╝  ╚════██║██║  ██║██╔══██║  ╚██╔╝
+    ██║   ╚██████╔╝███████╗███████║██████╔╝██║  ██║   ██║
+    ╚═╝    ╚═════╝ ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝
+
+  ╔══════════════════════════════════════════════════════╗
+  ║  Principal Engineer  ·  ARTIFEX Labs                 ║
+  ║  tuesday@artifex.fun                                 ║
+  ║  linktr.ee/artifexlabs                               ║
+  ║  huggingface.co/222tuesday                           ║
+  ║  contact: zcal.co/tuesday                            ║
+  ╚══════════════════════════════════════════════════════╝
+```
+
+**Principal Investigator**: Tuesday, ARTIFEX Labs  
+**Framework**: 3D Measurement Science in the Era of Frontier Intelligence (2026)  
+**Standards**: NIST AI 800-3 · ISO/IEC 42119-2/3 · MLCommons AILuminate  
+**Branch**: `main`
+
 
 ---
 
